@@ -1,0 +1,20 @@
+
+syntax = "proto3";
+
+package charserver;
+
+option go_package = "github.com/AndreyShep2012/chat/chatserver";
+
+message FromClient {
+    string name = 1;
+    string body = 2;
+}
+
+message FromServer {
+    string name = 1;
+    string body = 2;
+}
+
+ service Services {
+    rpc ChatService(stream FromClient) returns (stream FromServer){};
+ }
